@@ -113,5 +113,4 @@ https: test.describe('Exercises', () => {
             'https://devexpress.github.io/testcafe/example/thank-you.html',
         )
     })
-    
 })
