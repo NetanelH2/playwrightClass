@@ -66,7 +66,7 @@ https: test.describe('Exercises', () => {
     })
     test('Exercise 8', async ({page}) => {
         async function fillForm() {
-            await page.getByTestId('name-input').fill('Netanel')
+            await page.getByTestId('name-input').type('Netanel')
             await page.getByText('Support for testing on remote').click()
             await page.getByTestId('parallel-testing-checkbox').check()
             await page.getByTestId('analysis-checkbox').check()
@@ -77,10 +77,6 @@ https: test.describe('Exercises', () => {
             await page.getByTestId('tried-testcafe-checkbox').check()
         }
         await fillForm()
-        await page.evaluate(() => {
-            const button = document.querySelector('#submit-button')
-            button.disabled = false
-        })
         await expect(page.getByTestId('submit-button')).toBeEnabled()
         await page.getByTestId('submit-button').click()
         await expect(page.getByTestId('thank-you-header')).toHaveText(
@@ -89,7 +85,7 @@ https: test.describe('Exercises', () => {
     })
     test('Exercise 9', async ({page}) => {
         async function fillForm() {
-            await page.getByTestId('name-input').fill('Netanel')
+            await page.getByTestId('name-input').type('Netanel')
             await page.getByTestId('remote-testing-checkbox').check()
             await page.getByTestId('parallel-testing-checkbox').check()
             await page.getByTestId('analysis-checkbox').check()
@@ -103,10 +99,6 @@ https: test.describe('Exercises', () => {
                 .fill('This Is My Complete Test.')
         }
         await fillForm()
-        await page.evaluate(() => {
-            const button = document.querySelector('#submit-button')
-            button.disabled = false
-        })
         await expect(page.getByTestId('submit-button')).toBeEnabled()
         await page.getByTestId('submit-button').click()
         await expect(page).toHaveURL(
