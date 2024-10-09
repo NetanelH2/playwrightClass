@@ -1,6 +1,6 @@
 import {test, expect} from '@playwright/test'
 
-https: test.describe('Exercises', () => {
+test.describe('Exercises', () => {
     test.beforeEach(async ({page}) => {
         await page.goto('https://devexpress.github.io/testcafe/example/')
     })
