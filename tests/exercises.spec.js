@@ -116,7 +116,7 @@ test.describe('Exercises', () => {
     await page.getByTestId(textArea).fill(myParagraph)
     await expect(page.getByTestId(textArea)).toHaveValue(myParagraph)
     await page.evaluate(() => {
-      // There is an issue with the state of the submit button so we manually inject javascript code to the browser to change it
+      // There is an issue with the button's state, so we manually inject JavaScript code into the browser to change it
       document.querySelector('[data-testid="submit-button"]').disabled = false
     })
     await page.getByTestId(submitButton).click()
